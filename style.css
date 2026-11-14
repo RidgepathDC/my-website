@@ -1,1 +1,564 @@
+/* ==========================================================================
+   1. CSS CUSTOM PROPERTIES (DESIGN SYSTEM / COLOR PALETTE)
+   Twilight Blue Ridge Mountain Aesthetic
+   ========================================================================== */
+:root {
+  /* Primary Brand Colors */
+  --color-primary-dark: #0d1b2a;   /* Deep twilight navy */
+  --color-primary-blue: #1b263b;   /* Blue Ridge mountain tone */
+  --color-accent-blue:  #415a77;   /* Slate blue highlight */
+  --color-light-accent: #e0e1dd;   /* Soft slate/fog white */
+  
+  /* UI Neutral Colors */
+  --color-bg-light:     #f8f9fa;   /* Clean section background */
+  --color-text-main:    #1f2937;   /* Body text color */
+  --color-text-muted:   #6b7280;   /* Secondary text */
+  --color-white:        #ffffff;
 
+  /* Layout Guidelines & Transitions */
+  --max-width:          1100px;
+  --header-height:      80px;
+  --transition-standard: all 0.3s ease;
+  --font-family-main:   'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-main);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-light);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Keeps footer pinned to bottom on shorter pages */
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+/* ==========================================================================
+   3. STICKY HEADER & NAVIGATION MENU
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  background-color: rgba(13, 27, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Pure CSS Brand Logo & Typography */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-light-accent);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  flex-shrink: 0;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  bottom: -1px;
+  background: var(--color-primary-dark);
+  clip-path: path('M 35 15 C 30 15, 25 35, 15 35 C 10 35, 0 50, 20 60 L 40 60 Z');
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.brand-sub {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--color-light-accent);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--color-light-accent);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition-standard);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-white);
+}
+
+.nav-link.active {
+  border-bottom: 2px solid var(--color-accent-blue);
+  padding-bottom: 4px;
+}
+
+.nav-cta {
+  background-color: var(--color-accent-blue);
+  color: var(--color-white);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: var(--transition-standard);
+}
+
+.nav-cta:hover {
+  background-color: #526e8f;
+}
+
+/* ==========================================================================
+   4. HERO & SUB-PAGE HEADER BANNERS
+   ========================================================================== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary-blue) 60%, var(--color-accent-blue) 100%);
+  color: var(--color-white);
+  padding: 7.5rem 0 6.5rem 0;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z' fill='%23ffffff' opacity='0.15'%3E%3C/path%3E%3Cpath d='M0,30 C200,120 450,20 700,90 C950,160 1050,40 1200,70 L1200,120 L0,120 Z' fill='%23f8f9fa'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  max-width: 750px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-light-accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-light-accent);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* Compact Banner for Inner Pages (Services, About, Contact) */
+.page-banner {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary-blue) 100%);
+  color: var(--color-white);
+  padding: 4rem 0;
+}
+
+.page-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-banner p {
+  font-size: 1.15rem;
+  color: var(--color-light-accent);
+  font-weight: 300;
+  max-width: 650px;
+}
+
+/* ==========================================================================
+   5. BUTTONS & SHARED SECTION HEADERS
+   ========================================================================== */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition-standard);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-light-accent);
+}
+
+.btn-dark {
+  display: inline-block;
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition-standard);
+}
+
+.btn-dark:hover {
+  background-color: var(--color-primary-blue);
+  transform: translateY(-2px);
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   6. SERVICES GRID & CARDS
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--color-white);
+  padding: 2.25rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  transition: var(--transition-standard);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -5px rgba(13, 27, 42, 0.1);
+}
+
+.service-card h3 {
+  color: var(--color-primary-dark);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: var(--color-text-main);
+  font-size: 0.98rem;
+}
+
+.service-detail-block {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.service-detail-block h2 {
+  color: var(--color-primary-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-detail-block p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   7. ABOUT LAYOUT
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+.about-text p {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.about-card {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.about-card h3 {
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.feature-list {
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.feature-icon {
+  color: var(--color-accent-blue);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   8. CONTACT SECTION & FORM
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+}
+
+.contact-detail-item {
+  margin-top: 2rem;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.contact-value-link {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary-blue);
+  transition: var(--transition-standard);
+  display: inline-block;
+}
+
+.contact-value-link:hover {
+  color: var(--color-accent-blue);
+  text-decoration: underline;
+}
+
+.contact-form {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition-standard);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 3px rgba(65, 90, 119, 0.15);
+}
+
+.btn-submit {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-standard);
+}
+
+.btn-submit:hover {
+  background-color: var(--color-primary-blue);
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  color: #065f46;
+  background-color: #d1fae5;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #a7f3d0;
+}
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-primary-dark);
+  color: var(--color-light-accent);
+  padding: 2.5rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   10. MEDIA QUERIES (RESPONSIVE MOBILE STACK)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .services-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .site-header {
+    height: auto;
+  }
+}
