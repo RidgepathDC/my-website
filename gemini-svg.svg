@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="triangle-clip">
+      <path d="M29.4 9.5 Q32 5 34.6 9.5 L57.4 49 Q60 53.5 54.8 53.5 L9.2 53.5 Q4 53.5 6.6 49 Z" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#triangle-clip)">
+    <rect width="64" height="64" fill="#0f233c" />
+    <path d="M12,54 C24,47 36,44 33,37 C30,31 23,29 31,21 C34,18 38,17 41,16 L43,20 C38,22 33,24 35,29 C38,34 45,36 45,43 C45,48 40,51 34,54 Z" fill="#ffffff" />
+  </g>
+</svg>
